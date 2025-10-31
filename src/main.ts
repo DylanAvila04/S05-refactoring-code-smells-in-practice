@@ -1,8 +1,5 @@
 // CMPM 121 Smelly Code Activity
 
-// This variable keeps track of the counter
-let c = 0;
-
 // These constants are for button IDs and heading text
 const BTN_Increase = "increment";
 const count = "counter";
