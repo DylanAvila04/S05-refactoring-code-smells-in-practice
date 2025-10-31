@@ -1,40 +1,22 @@
-# Section 5 – Refactoring Code Smells in Practice
+code smells found:
 
-This activity is designed to help you practice identifying code smells and applying refactoring patterns to a real codebase in CMPM 121, Game Development Patterns.
+- magic values
+- unclear variable names
+- duplicate logic in buttons
+- long functions
+- global state variables
 
-## Assignment Instructions
+Magic Values:
+I moved all repeated strings that were in the code into named constants at the top of the file. Making it look better and easier to read for the user.
 
-For this assignment, your task is to **analyze and improve the code in `src/main.ts`**:
+Unclear Variable Names:
+Some names like c,a,b,bi and ctr were names that were not that descpritive and do not fully describe what they were holding. So I changed them to more descriptve names of the function for better readability
 
-1. **Identify code smells**: Review the code and look for patterns that may cause maintenance issues, reduce readability, or introduce potential bugs.
-2. **Refactor**: Apply **refactoring patterns** as described in Fowler’s _Refactoring_ book to improve the code.
-3. **Document your work**: Once you have completed your refactoring:
-   - Rewrite this README.md
-   - List the **code smells** you identified
-   - Describe the **refactoring patterns** you applied and how they improved the code
+Duplicate logice in buttons:
+All the updates that would occur in the code was moved into a single function named updateUI. This helped remove repated code from the increment, decrement, and reset click handlers.
 
-## Getting Started
+Long functions:
+It did not look right that the setup() function did everything at first. The function was too long and just looked scary at first. So I split it into three seprate functions and they setupUI, events, and UpdateUI
 
-With Codespaces (or another environment supporting devcontainers):
-
-1. Run `deno task dev` to start the development server
-
-Without Codespaces (local VS Code):
-
-1. Install the [Deno](https://docs.deno.com/runtime/getting_started/installation/) runtime.
-2. Install the Deno VS Code extension (must be done only after installing Deno runtime).
-3. Run `./setup-hooks.sh` to enable pre-commit quality checks
-4. Run `deno task dev` to start the development server
-
-The setup script configures Git hooks to automatically run formatting, linting, and type checking before commits.
-
-## Deployment
-
-This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
-
-### Setup GitHub Pages Deployment
-
-1. Go to your repository's Settings → Pages
-2. Under "Source", select "GitHub Actions"
-3. The workflow will automatically deploy on pushes to the `main` branch
-4. Your site will be published at `https://<your-github-username>.github.io/<repository-name>/`
+Global State Variables:
+I fixed this by moving the count into the state object instead. That way it aviods unnessary global variables and makes it easier to expand on it.
